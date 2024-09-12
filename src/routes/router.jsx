@@ -3,6 +3,7 @@ import Home from "../features/Home/Home";
 import Error from "../ui/Error/Error";
 import AppLayout from "../ui/AppLayout/AppLayout";
 import Catalog from "../features/Catalog/Catalog";
+import { campersLoader } from "../services/api";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
           path: '/Catalog',
           element: <Catalog />,
           errorElement: <Error />,
+          loader: campersLoader,
         }
       ],
     },
