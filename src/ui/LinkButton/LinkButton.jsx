@@ -3,7 +3,7 @@ import style from './LinkButton.module.css';
 import PropTypes from 'prop-types';
 
 
-function LinkButton({ children, to, type }) {
+function LinkButton({ children, to, type, onClick }) {
   const navigate = useNavigate();
 
   const className = `${style.btn}`;
@@ -22,6 +22,13 @@ function LinkButton({ children, to, type }) {
       </Link>
     );
 
+    if (type === 'search')
+      return (
+        <button className={style.btn_search} onClick={onClick}>
+          {children}
+        </button>
+      );
+   
   return (
     <Link to={to} className={className}>
       {children}

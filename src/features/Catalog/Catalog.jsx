@@ -1,20 +1,23 @@
-import { useLoaderData } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setCampers } from '../../redux/catalogSlice';
-// import styles from './Catalog.module.css'
+import { useLoaderData } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCampers } from "../../redux/catalogSlice";
+import styles from "./Catalog.module.css";
+// import CampersList from './CampersList';
+import Options from "./Options/Options";
 
 function Catalog() {
-    const campers = useLoaderData();
-    const dispatch = useDispatch();
+  const campers = useLoaderData();
+  const dispatch = useDispatch();
 
-    dispatch(setCampers(campers));
+  dispatch(setCampers(campers));
 
-    console.log(campers);
-    return (
-        <div>
-            <h1>Catalog</h1>
-        </div>
-    )
+  console.log(campers);
+  return (
+    <main className={styles.container}>
+      <Options />
+      {/* <CampersList campers={campers} /> */}
+    </main>
+  );
 }
 
-export default Catalog
+export default Catalog;
