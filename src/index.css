@@ -1,3 +1,4 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --primary-dark-color: #101828;
@@ -27,6 +28,25 @@ ul {
   margin: 0;
 }
 
-p {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
   margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.list_item {
+  text-align: center;
+  font-weight: 500;
+  line-height: 20px;
 }

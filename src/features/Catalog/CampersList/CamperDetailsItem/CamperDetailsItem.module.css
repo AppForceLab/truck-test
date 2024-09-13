@@ -1,0 +1,17 @@
+.item_details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    padding: 0 18px;
+    background: #f2f4f7;
+    height: 48px;
+  }
+  
+  .text_details {
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--primary-dark-color);
+    margin-left: 8px;
+  }

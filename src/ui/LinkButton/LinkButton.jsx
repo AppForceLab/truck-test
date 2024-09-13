@@ -1,34 +1,44 @@
-import { Link, useNavigate } from 'react-router-dom';
-import style from './LinkButton.module.css';
-import PropTypes from 'prop-types';
-
+import { Link, useNavigate } from "react-router-dom";
+import style from "./LinkButton.module.css";
+import PropTypes from "prop-types";
 
 function LinkButton({ children, to, type, onClick }) {
   const navigate = useNavigate();
 
   const className = `${style.btn}`;
 
-  if (to === '-1')
+  if (to === "-1")
     return (
       <button className={className} onClick={() => navigate(-1)}>
         {children}
       </button>
     );
 
-  if (type === 'primary')
+  if (type === "primary")
     return (
-      <Link to={to} className={className + ' btn-primary'}>
+      <Link to={to} className={style.btn}>
         {children}
       </Link>
     );
 
-    if (type === 'search')
-      return (
-        <button className={style.btn_search} onClick={onClick}>
-          {children}
-        </button>
-      );
-   
+  if (type === "search")
+    return (
+      <Link to={to} className={style.btn_search}>
+        {children}
+      </Link>
+    );
+
+  if (type === "show-more")
+    return (
+      <button
+        className={style.btn_show_more+ " "+ style.btn}
+        to={to}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    );
+
   return (
     <Link to={to} className={className}>
       {children}
@@ -38,9 +48,8 @@ function LinkButton({ children, to, type, onClick }) {
 
 LinkButton.propTypes = {
   children: PropTypes.node.isRequired,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string,
   type: PropTypes.string,
 };
-
 
 export default LinkButton;

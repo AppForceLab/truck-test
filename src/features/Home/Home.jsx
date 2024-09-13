@@ -10,7 +10,7 @@ const Home = () => {
           You can find everything you want in our catalog
         </p>
       </div>
-      <LinkButton className={styles.btn} to="/catalog" type="primary">
+      <LinkButton to="/catalog" type="primary">
         View Now
       </LinkButton>
     </main>
