@@ -1,0 +1,50 @@
+.list_reviews {
+    width: 631px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+  
+  .wrap_user {
+    display: flex;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    width: 60px;
+    background: #f2f4f7;
+    padding: 15px 22px;
+    margin-right: 16px;
+  
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--accent-color);
+  }
+  
+  .name {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.33333;
+  }
+  
+  .wrap_star {
+    display: flex;
+    column-gap: 4px;
+  }
+  
+  .active_star {
+    fill: #ffc531;
+    stroke: #ffc531;
+  }
+  
+  .not_active_star {
+    fill: #f2f4f7;
+    stroke: #f2f4f7;
+  }
+  
+  .comment {
+    color: #475467;
+  }

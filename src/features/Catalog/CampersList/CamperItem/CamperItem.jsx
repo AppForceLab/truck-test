@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Modal from 'components/Modal';
 import CamperDetails from "../CamperDetails/CamperDetails";
 import LinkButton from "../../../../ui/LinkButton/LinkButton";
 import { getCamperById } from "../../../../services/api";
@@ -10,7 +9,6 @@ import { addFavorites, delFavorites } from "../../../../redux/catalogSlice";
 import { getFavoritesSelector } from "../../../../redux/selectors";
 
 const CamperItem = ({ catalog }) => {
-  const [showModal, setShowModal] = useState(false);
   const [camper, setCamper] = useState({});
   const dispatch = useDispatch();
   const favorites = useSelector(getFavoritesSelector);
@@ -18,11 +16,6 @@ const CamperItem = ({ catalog }) => {
   const handelClickShowMore = async (id) => {
     const data = await getCamperById(id);
     setCamper(data);
-    isOpenModal();
-  };
-
-  const isOpenModal = () => {
-    setShowModal(!showModal);
   };
 
   const isActive = (camperId) => favorites.some(({ id }) => id === camperId);
@@ -120,7 +113,7 @@ const CamperItem = ({ catalog }) => {
               <LinkButton
                 type="show-more"
                 className={styles.button_show_more}
-                onClick={() => handelClickShowMore(id)}
+                to={`/catalog/${id}`}
               >
                 Show more
               </LinkButton>
@@ -128,7 +121,6 @@ const CamperItem = ({ catalog }) => {
           </li>
         );
       })}
-      {/* {showModal && <Modal isToggleModal={isOpenModal} advert={advert} />} */}
     </>
   );
 };

@@ -30,13 +30,12 @@ function LinkButton({ children, to, type, onClick }) {
 
   if (type === "show-more")
     return (
-      <button
-        className={style.btn_show_more+ " "+ style.btn}
+      <Link
+        className={style.btn_show_more}
         to={to}
-        onClick={onClick}
       >
         {children}
-      </button>
+      </Link>
     );
 
   return (

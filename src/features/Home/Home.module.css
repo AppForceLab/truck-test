@@ -12,6 +12,7 @@
   
   .wrap_hero_title {
     display: flex;
+    gap: 16px;
     flex-direction: column;
     align-items: start;
     margin-bottom: 40px;

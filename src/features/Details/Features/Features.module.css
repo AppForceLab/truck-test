@@ -1,0 +1,34 @@
+.wrap_features_options {
+    width: 631px;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 14px;
+  }
+  
+  .subtitle_vehicle_details {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 44px;
+    margin-bottom: 24px;
+  }
+  
+  .line {
+    border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+    margin-bottom: 24px;
+  }
+  
+  .text_vehicle_details {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33333;
+  }

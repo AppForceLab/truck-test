@@ -3,7 +3,8 @@ import Home from "../features/Home/Home";
 import Error from "../ui/Error/Error";
 import AppLayout from "../ui/AppLayout/AppLayout";
 import Catalog from "../features/Catalog/Catalog";
-import { campersLoader } from "../services/api";
+import { campersLoader,campersLoaderById } from "../services/api";
+import Details from "../features/Details/Details";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,14 @@ const router = createBrowserRouter([
           element: <Catalog />,
           errorElement: <Error />,
           loader: campersLoader,
+        },
+        {
+          path: '/Catalog/:id',
+          element: <Details />,
+          errorElement: <Error />,
+          loader: ({ params }) => campersLoaderById(params.id),
         }
+
       ],
     },
   ]);

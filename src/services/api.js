@@ -21,3 +21,8 @@ export async function campersLoader() {
     const campersAll = await getAllCampers();
     return campersAll;
   }
+
+  export async function campersLoaderById (id) {
+    const camper = await getCamperById(id);
+    return camper;
+  }

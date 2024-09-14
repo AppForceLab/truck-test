@@ -22,8 +22,8 @@ const catalogSlice = createSlice({
       state.favorites = state.favorites.filter(({ id }) => id !== payload);
     },
   },
-  extraReducers: bilder => {
-    bilder
+  extraReducers: builder => {
+    builder
       .addCase(fetchCampers.fulfilled, handelGetCampers)
       .addCase(fetchLoadMore.fulfilled, handelLoadMore)
   },
