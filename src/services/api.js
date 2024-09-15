@@ -1,28 +1,28 @@
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/';
+axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/";
 
-export const getCampers= async (page = 1) => {
+export const getCampers = async (page = 1) => {
   const { data } = await axios.get(`campers?page=${page}&limit=4`);
   return data;
 };
 
 export const getAllCampers = async () => {
-  const { data } = await axios.get('campers');
+  const { data } = await axios.get("campers");
   return data;
 };
 
-export const getCamperById = async id => {
+export const getCamperById = async (id) => {
   const { data } = await axios.get(`campers/${id}`);
   return data;
 };
 
 export async function campersLoader() {
-    const campersAll = await getAllCampers();
-    return campersAll;
-  }
+  const campersAll = await getAllCampers();
+  return campersAll;
+}
 
-  export async function campersLoaderById (id) {
-    const camper = await getCamperById(id);
-    return camper;
-  }
+export async function campersLoaderById(id) {
+  const camper = await getCamperById(id);
+  return camper;
+}

@@ -4,6 +4,7 @@ import LinkButton from "../../ui/LinkButton/LinkButton";
 const Home = () => {
   return (
     <main className={styles.wrap_hero}>
+      <div className={styles.container}>
       <div className={styles.wrap_hero_title}>
         <h1 className={styles.title}>Campers of your dreams</h1>
         <p className={styles.text}>
@@ -13,6 +14,7 @@ const Home = () => {
       <LinkButton to="/catalog" type="primary">
         View Now
       </LinkButton>
+      </div>
     </main>
   );
 };

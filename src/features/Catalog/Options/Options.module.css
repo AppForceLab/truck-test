@@ -6,7 +6,7 @@
 .subtitle_filter {
   font-weight: 500;
   color: #475467;
-  margin-bottom: 14px;
+  margin-bottom: 32px;
 }
 
 .subtitle_location {
@@ -18,6 +18,7 @@
 .title_options {
   font-size: 20px;
   line-height: 1.2;
+  font-weight: 600;
   margin-bottom: 24px;
   color: #101828;
 }
@@ -26,7 +27,9 @@
   max-width: 360px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  column-gap: 12px;
+  row-gap: 8px;
+  margin-bottom: 32px;
 }
 
 .item_option {

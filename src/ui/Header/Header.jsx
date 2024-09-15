@@ -4,6 +4,7 @@ import styles from "./Header.module.css";
 function Header() {
   return (
     <header className={styles.header}>
+      <div className={styles.header_wrapper}>
       <Link className={styles.logo} to="/">
         <img src="src/assets/img/logo.svg" alt="Truck logo" />
       </Link>
@@ -31,6 +32,7 @@ function Header() {
           </li>
         </ul>
       </nav>
+      </div>
     </header>
   );
 }

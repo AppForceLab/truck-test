@@ -4,12 +4,14 @@ import Equipment from "./Equipment/Equipment";
 import Location from "./Location/Location";
 import { useState } from "react";
 import LinkButton from "../../../ui/LinkButton/LinkButton";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../../redux/catalogSlice";
 
 const Options = () => {
   const [type, setType] = useState("");
   const [location, setLocation] = useState("");
   const [equipment, setEquipment] = useState([]);
-
+  const dispatch = useDispatch();
   const getType = (form) => {
     setType(form);
   };
@@ -23,7 +25,14 @@ const Options = () => {
   };
 
   const handlerClick = () => {
-    console.log(type, location, equipment);
+  const newType = type==='van'?'panelTruck':type;
+
+    const filter = {
+      location: location,
+      equipment: equipment,
+      type: newType,
+    };
+    dispatch(setFilter(filter));
   };
 
   return (
@@ -37,10 +46,7 @@ const Options = () => {
       <h4 className={styles.title_options}>Vehicle type</h4>
       <div className={styles.line}></div>
       <VehicleType onClickType={getType} />
-      <LinkButton
-        onClick={handlerClick}
-        type="search"
-      >
+      <LinkButton onClick={handlerClick} type="search">
         Search
       </LinkButton>
     </div>

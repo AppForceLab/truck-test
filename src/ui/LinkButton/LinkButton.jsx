@@ -23,7 +23,7 @@ function LinkButton({ children, to, type, onClick }) {
 
   if (type === "search")
     return (
-      <Link to={to} className={style.btn_search}>
+      <Link to={to} onClick={onClick} className={style.btn_search}>
         {children}
       </Link>
     );

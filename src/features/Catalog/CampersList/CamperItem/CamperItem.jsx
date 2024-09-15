@@ -1,39 +1,101 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CamperDetails from "../CamperDetails/CamperDetails";
 import LinkButton from "../../../../ui/LinkButton/LinkButton";
+import Button from "../../../../ui/Button/Button";
 import { getCamperById } from "../../../../services/api";
 import Icon from "../../Icon/Icon";
 import styles from "./CamperItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorites, delFavorites } from "../../../../redux/catalogSlice";
-import { getFavoritesSelector } from "../../../../redux/selectors";
+import { clickFavorites, setFilter } from "../../../../redux/catalogSlice";
+import { getFavoritesSelector, getFilter } from "../../../../redux/selectors";
 
 const CamperItem = ({ catalog }) => {
   const [camper, setCamper] = useState({});
+  const [page, setPage] = useState(1);
+  const [filteredCampers, setFilteredCampers] = useState([]);
   const dispatch = useDispatch();
   const favorites = useSelector(getFavoritesSelector);
+  const filter = useSelector(getFilter);
 
-  const handelClickShowMore = async (id) => {
+  // Helper function to filter campers
+  const applyFilters = (campers) => {
+    let filtered = campers;
+
+    // Filter by location
+    if (filter.location !== "") {
+      filtered = filtered.filter((item) => item.location === filter.location);
+    }
+
+    // Filter by equipment
+    if (filter.equipment.length > 0) {
+      filtered = filtered.filter((item) => {
+        return filter.equipment.every((eq) => {
+          switch (eq.toLowerCase()) {
+            case "transmission":
+              return item.transmission !== "manual";
+            case "ac":
+              return item.AC === true;
+            case "shower":
+              return item.bathroom === true;
+            case "kitchen":
+              return item.kitchen === true;
+            case "tv":
+              return item.TV === true;
+            default:
+              return false;
+          }
+        });
+      });
+    }
+
+    if (filter.type !== "") {
+      filtered = filtered.filter((item) => item.form === filter.type);
+    }
+
+    return filtered;
+  };
+
+  useEffect(() => {
+    setFilteredCampers(applyFilters(catalog));
+    setPage(1); // Reset the page when the filter or catalog changes
+  }, [filter, catalog]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(setFilter({ location: "", equipment: [], type: "" })); // Clear filters
+    };
+  }, [dispatch]);
+
+  const handleClickShowMore = async (id) => {
     const data = await getCamperById(id);
     setCamper(data);
   };
 
   const isActive = (camperId) => favorites.some(({ id }) => id === camperId);
 
-  const handlerAddFavorites = (camper) => {
-    const findIbxAdvert = favorites.findIndex(({ id }) => id === camper.id);
-
-    if (findIbxAdvert !== -1) {
-      dispatch(delFavorites(camper.id));
-      return;
-    }
-
-    dispatch(addFavorites(camper));
+  const handleAddFavorites = (id) => {
+    dispatch(clickFavorites(id));
   };
+
+  const handlerLoadMore = () => {
+    if (page * 4 >= filteredCampers.length) {
+      return; // Do nothing if no more campers to load
+    }
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  // Calculate the campers to display based on the current page
+  const displayedCampers = filteredCampers.slice(0, page * 4);
 
   return (
     <>
-      {catalog.map((item) => {
+      {filteredCampers.length === 0 && (
+        <h4 className={styles.not_found}>
+          Sorry, we couldn't find any campers that match your search.
+        </h4>
+      )}
+
+      {displayedCampers.map((item) => {
         const {
           id,
           name,
@@ -76,7 +138,7 @@ const CamperItem = ({ catalog }) => {
                       width="24"
                       height="24"
                       name="heart"
-                      onClick={() => handlerAddFavorites(camper)}
+                      onClick={() => handleAddFavorites(id)}
                     />
                   </div>
                 </div>
@@ -121,6 +183,16 @@ const CamperItem = ({ catalog }) => {
           </li>
         );
       })}
+      
+      {page * 4 < filteredCampers.length && (
+        <Button
+          type="button"
+          className={styles.button_load_more}
+          onClick={handlerLoadMore}
+        >
+          Load more
+        </Button>
+      )}
     </>
   );
 };
