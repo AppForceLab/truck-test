@@ -5,15 +5,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 64px;
 }
 
 .logo {
   position: absolute;
   width: 136px;
   height: 16px;
-   left: 0;
-  top: 4px;
+  left: 64px;
+  top: 28px;
 }
 
 .menu {
@@ -27,7 +26,7 @@
   line-height: 24px;
 }
 
-.header_wrapper{
+.header_wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -35,4 +34,5 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 24px 64px;
 }

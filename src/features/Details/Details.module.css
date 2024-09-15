@@ -1,29 +1,3 @@
-
-  /* .modal_content {
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    width: 982px;
-    max-height: 90vh;
-    overflow: auto;
-    scrollbar-width: 8px;
-  }
-  
-  .modal_content::-webkit-scrollbar {
-    width: 8px;
-    height: 264px;
-  }
-  
-  .modal_content::-webkit-scrollbar-thumb {
-    background: #d9d9d9;
-    border-radius: 7px;
-    margin-right: 16px;
-  }
-  
-  .modal_content::-webkit-scrollbar-corner {
-    background: transparent;
-  }
-   */
   .wrap_head_modal {
     display: flex;
     align-items: center;
@@ -138,6 +112,7 @@
   .container {
     max-width: 1440px;
     margin: 0 auto;
+    width: 100%;
     padding: 48px 64px 52px 64px;
     display: flex;
   }

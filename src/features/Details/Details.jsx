@@ -68,7 +68,7 @@ function Details() {
             className={styles.map_pin}
             width="16"
             height="16"
-            name="map-pin"
+            name="city"
           />
           <p>{location}</p>
         </div>
