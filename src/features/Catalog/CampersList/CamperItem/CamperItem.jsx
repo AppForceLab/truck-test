@@ -57,19 +57,19 @@ const CamperItem = ({ catalog }) => {
 
   useEffect(() => {
     setFilteredCampers(applyFilters(catalog));
-    setPage(1); // Reset the page when the filter or catalog changes
+    setPage(1); 
   }, [filter, catalog]);
 
-  useEffect(() => {
-    return () => {
-      dispatch(setFilter({ location: "", equipment: [], type: "" })); // Clear filters
-    };
-  }, [dispatch]);
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(setFilter({ location: "", equipment: [], type: "" })); // Clear filters
+  //   };
+  // }, [dispatch]);
 
-  const handleClickShowMore = async (id) => {
-    const data = await getCamperById(id);
-    setCamper(data);
-  };
+  // const handleClickShowMore = async (id) => {
+  //   const data = await getCamperById(id);
+  //   setCamper(data);
+  // };
 
   const isActive = (camperId) => favorites.some(({ id }) => id === camperId);
 

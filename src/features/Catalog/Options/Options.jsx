@@ -24,7 +24,9 @@ const Options = () => {
     setEquipment(arr);
   };
 
-  const handlerClick = () => {
+  const handlerClick = (e) => {
+    e.preventDefault();
+
   const newType = type==='van'?'panelTruck':type;
 
     const filter = {
