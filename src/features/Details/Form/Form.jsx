@@ -49,7 +49,7 @@ const Form = () => {
       autoClose: 5000,
       pauseOnHover: true,
       theme: "colored",
-      closeOnClick: false,
+
     });
   };
 

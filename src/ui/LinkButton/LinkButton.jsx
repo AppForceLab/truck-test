@@ -33,6 +33,7 @@ function LinkButton({ children, to, type, onClick }) {
       <Link
         className={style.btn_show_more}
         to={to}
+        onClick={onClick}
       >
         {children}
       </Link>

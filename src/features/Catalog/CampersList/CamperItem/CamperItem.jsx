@@ -171,6 +171,7 @@ const CamperItem = ({ catalog }) => {
                 type="show-more"
                 className={styles.button_show_more}
                 to={`/catalog/${id}`}
+                onClick={() => window.open(`/catalog/${id}`, '_blank')}
               >
                 Show more
               </LinkButton>
