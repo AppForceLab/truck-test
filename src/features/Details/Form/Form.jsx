@@ -1,5 +1,5 @@
-import Button from "../../../ui/Button/Button";
 import styles from "./Form.module.css";
+import Button from "../../../ui/Button/Button";
 import { toast } from "react-toastify";
 
 const Form = () => {
@@ -12,7 +12,7 @@ const Form = () => {
     const bookingDate = form.bookingDate.value;
 
     // Validate name (should only contain letters and spaces)
-    if  (!/^[A-Za-z\s\u0400-\u04FF]+$/.test(name)) {
+    if (!/^[A-Za-z\s\u0400-\u04FF]+$/.test(name)) {
       toast.error("Name can only contain letters and spaces.", {
         position: "top-right",
         autoClose: 5000,
@@ -49,7 +49,6 @@ const Form = () => {
       autoClose: 5000,
       pauseOnHover: true,
       theme: "colored",
-
     });
   };
 
@@ -99,10 +98,7 @@ const Form = () => {
           ></textarea>
         </div>
         <div className={styles.wrap_btn}>
-          <Button
-            className={styles.btn_form}
-            type="submit"
-          >
+          <Button className={styles.btn_form} type="submit">
             Send
           </Button>
         </div>

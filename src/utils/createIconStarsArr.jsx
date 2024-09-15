@@ -1,4 +1,4 @@
-import Icon from '../features/Catalog/Icon/Icon';
+import Icon from '../ui/Icon/Icon';
 
 export const createIconStarsArr = (number, notActive, active) => {
   let i = 0;

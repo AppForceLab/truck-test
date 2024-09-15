@@ -98,24 +98,24 @@ body,
 
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url('/src/assets/fonts/Inter-Regular.ttf') format('ttf');
+  src: url("/src/assets/fonts/Inter-Regular.ttf") format("ttf");
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  src: url('/src/assets/fonts/Inter-Medium.ttf') format('ttf');
+  src: url("/src/assets/fonts/Inter-Medium.ttf") format("ttf");
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  src: url('/src/assets/fonts/Inter-Regular.ttf') format('ttf');
+  src: url("/src/assets/fonts/Inter-Regular.ttf") format("ttf");
 }

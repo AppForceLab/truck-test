@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import catalogReducer from "./catalogSlice";
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; 
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-  key: 'catalog',
+  key: "catalog",
   storage,
-  whitelist: ['favorites']
+  whitelist: ["favorites"],
 };
 
 const persistedReducer = persistReducer(persistConfig, catalogReducer);
@@ -18,7 +18,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
       },
     }),
 });

@@ -1,10 +1,10 @@
-import styles from "./Options.module.css";
+import { useDispatch } from "react-redux";
 import VehicleType from "./VehicleType/VehicleType";
 import Equipment from "./Equipment/Equipment";
 import Location from "./Location/Location";
 import { useState } from "react";
+import styles from "./Options.module.css";
 import LinkButton from "../../../ui/LinkButton/LinkButton";
-import { useDispatch } from "react-redux";
 import { setFilter } from "../../../redux/catalogSlice";
 
 const Options = () => {
@@ -27,7 +27,7 @@ const Options = () => {
   const handlerClick = (e) => {
     e.preventDefault();
 
-  const newType = type==='van'?'panelTruck':type;
+    const newType = type === "van" ? "panelTruck" : type;
 
     const filter = {
       location: location,

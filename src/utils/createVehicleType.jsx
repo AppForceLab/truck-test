@@ -1,4 +1,4 @@
-import Icon from '../features/Catalog/Icon/Icon';
+import Icon from '../ui/Icon/Icon';
 
 export const createVehicleType = () => {
   return [

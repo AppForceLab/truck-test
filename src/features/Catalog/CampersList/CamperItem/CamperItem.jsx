@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import CamperDetails from "../CamperDetails/CamperDetails";
-import LinkButton from "../../../../ui/LinkButton/LinkButton";
-import Button from "../../../../ui/Button/Button";
-import Icon from "../../Icon/Icon";
-import styles from "./CamperItem.module.css";
+import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { clickFavorites, setFilter } from "../../../../redux/catalogSlice";
 import { getFavoritesSelector, getFilter } from "../../../../redux/selectors";
-import PropTypes from "prop-types";
+import Button from "../../../../ui/Button/Button";
+import CamperDetails from "../CamperDetails/CamperDetails";
+import Icon from "../../../../ui/Icon/Icon";
+import LinkButton from "../../../../ui/LinkButton/LinkButton";
+import styles from "./CamperItem.module.css";
 
 const CamperItem = ({ catalog }) => {
   const [page, setPage] = useState(1);
@@ -17,7 +17,7 @@ const CamperItem = ({ catalog }) => {
   const filter = useSelector(getFilter);
 
   // Helper function to filter campers
-  const applyFilters = useCallback ((campers) => {
+  const applyFilters = useCallback((campers) => {
     let filtered = campers;
 
     // Filter by location
@@ -65,7 +65,6 @@ const CamperItem = ({ catalog }) => {
     };
   }, [dispatch]);
 
- 
   const isActive = (camperId) => favorites.some(({ id }) => id === camperId);
 
   const handleAddFavorites = (id) => {
@@ -78,7 +77,6 @@ const CamperItem = ({ catalog }) => {
     }
     setPage((prevPage) => prevPage + 1);
   };
-
 
   const displayedCampers = filteredCampers.slice(0, page * 4);
 
@@ -196,4 +194,5 @@ const CamperItem = ({ catalog }) => {
 CamperItem.propTypes = {
   catalog: PropTypes.array.isRequired,
 };
+
 export default CamperItem;

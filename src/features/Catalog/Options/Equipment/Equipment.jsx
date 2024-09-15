@@ -1,8 +1,9 @@
-import { createEquipment } from '../../../../utils/createEquipment';
-import styles from './Equipment.module.css';
-import styleParent from '../Options.module.css';
-import { setActiveEquipment } from '../../../../utils/setActiveEquipment';
-import { useEffect, useState } from 'react';
+import { createEquipment } from "../../../../utils/createEquipment";
+import styles from "./Equipment.module.css";
+import styleParent from "../Options.module.css";
+import { setActiveEquipment } from "../../../../utils/setActiveEquipment";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 const Equipment = ({ onClickEquipment }) => {
   const [activeElements, setActiveElements] = useState([]);
@@ -11,7 +12,7 @@ const Equipment = ({ onClickEquipment }) => {
     onClickEquipment(activeElements);
   }, [onClickEquipment, activeElements]);
 
-  const handelClickEquioment = value => {
+  const handelClickEquioment = (value) => {
     setActiveEquipment({
       value,
       activeElements,
@@ -40,6 +41,10 @@ const Equipment = ({ onClickEquipment }) => {
       ))}
     </ul>
   );
+};
+
+Equipment.propTypes = {
+  onClickEquipment: PropTypes.func.isRequired,
 };
 
 export default Equipment;

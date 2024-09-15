@@ -1,8 +1,8 @@
-import CamperDetailsItem from "../CamperDetailsItem/CamperDetailsItem";
-import Icon from "../../../Catalog/Icon/Icon";
-import styles from "./CamperDetails.module.css";
-import { capitalizeFirstLetter } from "../../../../utils/capitalizeFirstLetter";
 import PropTypes from "prop-types";
+import { capitalizeFirstLetter } from "../../../../utils/capitalizeFirstLetter";
+import CamperDetailsItem from "../CamperDetailsItem/CamperDetailsItem";
+import Icon from "../../../../ui/Icon/Icon";
+import styles from "./CamperDetails.module.css";
 
 function CamperDetails({
   transmission,

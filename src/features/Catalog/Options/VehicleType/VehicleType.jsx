@@ -1,17 +1,18 @@
-import { createVehicleType } from '../../../../utils/createVehicleType';
-import styles from './VehicleType.module.css';
-import styleParent from '../Options.module.css';
-import { setActiveVehType } from '../../../../utils/setActiveVehType';
-import { useEffect, useState } from 'react';
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import styles from "./VehicleType.module.css";
+import styleParent from "../Options.module.css";
+import { setActiveVehType } from "../../../../utils/setActiveVehType";
+import { createVehicleType } from "../../../../utils/createVehicleType";
 
 const VehicleType = ({ onClickType }) => {
-  const [activeType, setActiveType] = useState('');
+  const [activeType, setActiveType] = useState("");
 
   useEffect(() => {
     onClickType(activeType);
   }, [onClickType, activeType]);
 
-  const handelTypeClick = value => {
+  const handelTypeClick = (value) => {
     setActiveVehType({
       value,
       activeTypeCar: activeType,
@@ -41,6 +42,10 @@ const VehicleType = ({ onClickType }) => {
       ))}
     </ul>
   );
+};
+
+VehicleType.propTypes = {
+  onClickType: PropTypes.func.isRequired,
 };
 
 export default VehicleType;
