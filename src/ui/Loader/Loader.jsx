@@ -1,10 +1,27 @@
-function Loader() {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center bg-slate-200/20 backdrop-blur-sm">
-        <div className="loader"></div>
-      </div>
-    );
-  }
-  
-  export default Loader;
-  
+import { MagnifyingGlass } from "react-loader-spinner";
+
+const Loader = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <MagnifyingGlass
+        visible={true}
+        height="80"
+        width="80"
+        ariaLabel="magnifying-glass-loading"
+        wrapperStyle={{}}
+        wrapperClass="magnifying-glass-wrapper"
+        glassColor="#c0efff"
+        color="#e15b64"
+      />
+    </div>
+  );
+};
+
+export default Loader;

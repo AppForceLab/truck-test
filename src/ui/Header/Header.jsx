@@ -6,7 +6,7 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.header_wrapper}>
       <Link className={styles.logo} to="/">
-        <img src="src/assets/img/logo.svg" alt="Truck logo" />
+        <img src="/public/logo.svg" alt="Truck logo" />
       </Link>
       <nav>
         <ul className={styles.menu}>
