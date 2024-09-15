@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CamperDetails from "../CamperDetails/CamperDetails";
 import LinkButton from "../../../../ui/LinkButton/LinkButton";
 import Button from "../../../../ui/Button/Button";
-import { getCamperById } from "../../../../services/api";
 import Icon from "../../Icon/Icon";
 import styles from "./CamperItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { clickFavorites, setFilter } from "../../../../redux/catalogSlice";
 import { getFavoritesSelector, getFilter } from "../../../../redux/selectors";
+import PropTypes from "prop-types";
 
 const CamperItem = ({ catalog }) => {
-  const [camper, setCamper] = useState({});
   const [page, setPage] = useState(1);
   const [filteredCampers, setFilteredCampers] = useState([]);
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const CamperItem = ({ catalog }) => {
   const filter = useSelector(getFilter);
 
   // Helper function to filter campers
-  const applyFilters = (campers) => {
+  const applyFilters = useCallback ((campers) => {
     let filtered = campers;
 
     // Filter by location
@@ -53,24 +52,20 @@ const CamperItem = ({ catalog }) => {
     }
 
     return filtered;
-  };
+  }, [filter]);
 
   useEffect(() => {
     setFilteredCampers(applyFilters(catalog));
     setPage(1); 
-  }, [filter, catalog]);
+  }, [filter, catalog, applyFilters]);
 
-  // useEffect(() => {
-  //   return () => {
-  //     dispatch(setFilter({ location: "", equipment: [], type: "" })); // Clear filters
-  //   };
-  // }, [dispatch]);
+  useEffect(() => {
+    return () => {
+      dispatch(setFilter({ location: "", equipment: [], type: "" })); // Clear filters
+    };
+  }, [dispatch]);
 
-  // const handleClickShowMore = async (id) => {
-  //   const data = await getCamperById(id);
-  //   setCamper(data);
-  // };
-
+ 
   const isActive = (camperId) => favorites.some(({ id }) => id === camperId);
 
   const handleAddFavorites = (id) => {
@@ -79,19 +74,19 @@ const CamperItem = ({ catalog }) => {
 
   const handlerLoadMore = () => {
     if (page * 4 >= filteredCampers.length) {
-      return; // Do nothing if no more campers to load
+      return; 
     }
     setPage((prevPage) => prevPage + 1);
   };
 
-  // Calculate the campers to display based on the current page
+
   const displayedCampers = filteredCampers.slice(0, page * 4);
 
   return (
     <>
       {filteredCampers.length === 0 && (
         <h4 className={styles.not_found}>
-          Sorry, we couldn't find any campers that match your search.
+          Sorry, we can&apos;t find any campers that match your search.
         </h4>
       )}
 
@@ -197,4 +192,7 @@ const CamperItem = ({ catalog }) => {
   );
 };
 
+CamperItem.propTypes = {
+  catalog: PropTypes.array.isRequired,
+};
 export default CamperItem;

@@ -8,7 +8,7 @@ import  Form  from "../Details/Form/Form";
 import Reviews from "./Reviews/Reviews";
 
 function Details() {
-  const [toggleActiveBtn, setToggleActiveBtn] = useState('');
+  const [toggleActiveBtn, setToggleActiveBtn] = useState('features');
 
   const camper = useLoaderData();
 
@@ -30,8 +30,16 @@ function Details() {
     price,
     reviews,
     transmission,
-    adults,
     engine,
+    kitchen,
+    ac,
+    bathroom,
+    tv,
+    radio,
+    refrigerator,
+    microwave,
+    gas,
+    water,
     details,
     form,
     length,
@@ -72,15 +80,15 @@ function Details() {
           />
           <p>{location}</p>
         </div>
-        <h4 className={styles.price_modal}>€{price.toFixed(2)}</h4>
+        <h4 className={styles.price}>€{price.toFixed(2)}</h4>
         <ul className={styles.gallery}>
           {gallery.map((img) => (
-            <li className={styles.wrap_img} key={img.thumb}>
-              <img className={styles.image} src={img.thumb} alt={name} />
+            <li className={styles.wrap_img} key={img.original}>
+              <img className={styles.image} src={img.original} alt={name} />
             </li>
           ))}
         </ul>
-        <p className={styles.desc_modal}>{description}</p>
+        <p className={styles.desc}>{description}</p>
         <div className={styles.wrap_btn}>
           { <Button
               onClick={handleClickFeatures}
@@ -108,8 +116,16 @@ function Details() {
                 <Features
                   vehicleDetails={vehicleDetails}
                   transmission={transmission}
-                  adults={adults}
                   engine={engine}
+                  kitchen={kitchen}
+                  ac={ac}
+                  bathroom={bathroom}
+                  tv={tv}
+                  radio={radio}
+                  refrigerator={refrigerator}
+                  microwave={microwave}
+                  gas={gas}
+                  water={water}
                   details={details}
                 />
                 <Form />

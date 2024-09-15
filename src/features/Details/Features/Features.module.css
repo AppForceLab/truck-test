@@ -1,5 +1,10 @@
 .wrap_features_options {
-    width: 631px;
+    display: flex;
+width: 631px;
+padding: 44px 52px;
+flex-direction: column;
+border-radius: 10px;
+background: var(--Inputs, #F7F7F7);
   }
   
   .list {
@@ -15,10 +20,11 @@
   }
   
   .subtitle_vehicle_details {
+    padding-top: 24px;
     font-weight: 600;
     font-size: 20px;
     line-height: 1.2;
-    margin-top: 44px;
+    margin-top: auto;
     margin-bottom: 24px;
   }
   

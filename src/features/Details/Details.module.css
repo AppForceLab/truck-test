@@ -32,11 +32,11 @@
     margin-right: 4px;
   }
   
-  .price_modal {
+  .price {
     font-weight: 600;
     font-size: 24px;
     line-height: 1.25;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   
   .gallery {
@@ -45,8 +45,8 @@
     margin-bottom: 24px;
   }
   .wrap_img {
-    width: 290px;
-    height: 310px;
+    width: 292px;
+    height: 312px;
     overflow: hidden;
   }
   
@@ -56,13 +56,13 @@
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: none;
     object-position: center;
   }
   
-  .desc_modal {
+  .desc {
     color: #475467;
-    margin-bottom: 44px;
+    margin-bottom: 60px;
   }
   
   .wrap_btn {

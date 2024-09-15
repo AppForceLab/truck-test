@@ -1,13 +1,29 @@
 import CamperDetailsItem from "../CamperDetailsItem/CamperDetailsItem";
 import Icon from "../../../Catalog/Icon/Icon";
 import styles from "./CamperDetails.module.css";
-import {capitalizeFirstLetter} from "../../../../utils/capitalizeFirstLetter";
+import { capitalizeFirstLetter } from "../../../../utils/capitalizeFirstLetter";
+import PropTypes from "prop-types";
 
-function CamperDetails({ transmission, engine, kitchen, ac, bathroom, tv }) {
+function CamperDetails({
+  transmission,
+  engine,
+  kitchen,
+  ac,
+  bathroom,
+  tv,
+  radio,
+  refrigerator,
+  microwave,
+  gas,
+  water,
+}) {
   const details_arr = [];
-  
+
   if (transmission) {
-    details_arr.push({ text: capitalizeFirstLetter(transmission) , icon: "automatic" });
+    details_arr.push({
+      text: capitalizeFirstLetter(transmission),
+      icon: "automatic",
+    });
   }
   if (engine) {
     details_arr.push({ text: capitalizeFirstLetter(engine), icon: "petrol" });
@@ -24,7 +40,22 @@ function CamperDetails({ transmission, engine, kitchen, ac, bathroom, tv }) {
   if (tv) {
     details_arr.push({ text: "TV", icon: "tv" });
   }
-  
+  if (radio) {
+    details_arr.push({ text: "Radio", icon: "radio" });
+  }
+  if (refrigerator) {
+    details_arr.push({ text: "Refrigerator", icon: "refrigerator" });
+  }
+  if (microwave) {
+    details_arr.push({ text: "Microwave", icon: "microwave" });
+  }
+  if (gas) {
+    details_arr.push({ text: "Gas", icon: "gas" });
+  }
+  if (water) {
+    details_arr.push({ text: "Water", icon: "water" });
+  }
+
   return (
     <ul className={styles.wrap_list_details}>
       {details_arr &&
@@ -41,5 +72,19 @@ function CamperDetails({ transmission, engine, kitchen, ac, bathroom, tv }) {
     </ul>
   );
 }
+
+CamperDetails.propTypes = {
+  transmission: PropTypes.string,
+  engine: PropTypes.string,
+  kitchen: PropTypes.bool,
+  ac: PropTypes.bool,
+  bathroom: PropTypes.bool,
+  tv: PropTypes.bool,
+  radio: PropTypes.bool,
+  refrigerator: PropTypes.bool,
+  microwave: PropTypes.bool,
+  gas: PropTypes.bool,
+  water: PropTypes.bool,
+};
 
 export default CamperDetails;
