@@ -23,7 +23,6 @@ const catalogSlice = createSlice({
       state.campers = action.payload;
     },
     clickFavorites: (state, { payload }) => {
-      console.log(payload);
       state.favorites = state.favorites.some(item => item.id === payload)
         ? state.favorites.filter(({ id }) => id !== payload)
         // ? state.favorites.filter(({ id }) => id !== payload)

@@ -2,7 +2,7 @@
   .select_location {
     border-radius: 10px;
     border: none;
-    padding: 18px 18px 18px 18px;
+    padding: 18px 18px 18px 48px;
     width: 360px;
     background: var(--input-color);
     outline: none;
@@ -38,4 +38,16 @@
   }
   .select_location:hover {
     background-color: #f5eeee;
+  }
+
+  .select_location_container {
+    position: relative;
+  }
+
+  .select_location_icon {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
   }

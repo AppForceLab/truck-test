@@ -11,7 +11,7 @@ function Details() {
   const [toggleActiveBtn, setToggleActiveBtn] = useState('');
 
   const camper = useLoaderData();
-  console.log(camper);
+
 
   const handleClickFeatures = () => {
       setToggleActiveBtn('features');
